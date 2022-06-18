@@ -1,3 +1,6 @@
+INSERT INTO foo(id,name) VALUES (1,'John');
+
+
 DELIMITER //
     CREATE PROCEDURE GetFoosByName(IN fooName VARCHAR(255))
         LANGUAGE SQL
