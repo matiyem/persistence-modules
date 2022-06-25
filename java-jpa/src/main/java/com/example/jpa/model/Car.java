@@ -13,11 +13,14 @@ import javax.persistence.*;
         @NamedStoredProcedureQuery(name = "findByYearProcedure",
                 procedureName = "FIND_CAR_BY_YEAR",
                 resultClasses = { Car.class },
-                parameters = { @StoredProcedureParameter(name = "p_year", type = Integer.class, mode = ParameterMode.IN) }) })
+                parameters = { @StoredProcedureParameter(name = "p_year", type = Integer.class, mode = ParameterMode.IN),
+                        @StoredProcedureParameter(name = "output", type = Integer.class, mode = ParameterMode.OUT)}) })
 public class Car {
     private long id;
     private String model;
     private Integer year;
+
+
 
     public Car(final String model, final Integer year) {
         this.model = model;
@@ -55,4 +58,6 @@ public class Car {
     public void setYear(final Integer year) {
         this.year = year;
     }
+
+
 }
