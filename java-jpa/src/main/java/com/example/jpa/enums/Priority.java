@@ -1,0 +1,29 @@
+package com.example.jpa.enums;
+
+import java.util.stream.Stream;
+
+/*
+    Create by Atiye Mousavi 
+    Date: 6/18/2022
+    Time: 3:12 PM
+**/
+public enum Priority {
+    LOW(100), MEDIUM(200), HIGH(300);
+
+    private int priority;
+
+    private Priority(int priority) {
+        this.priority = priority;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public static Priority of(int priority) {
+        return Stream.of(Priority.values())
+                .filter(p -> p.getPriority() == priority)
+                .findFirst()
+                .orElseThrow(IllegalArgumentException::new);
+    }
+}

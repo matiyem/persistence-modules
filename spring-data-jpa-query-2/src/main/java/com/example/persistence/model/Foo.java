@@ -2,34 +2,24 @@ package com.example.persistence.model;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedNativeQueries;
-import javax.persistence.NamedNativeQuery;
+import javax.persistence.*;
 
 import org.hibernate.envers.Audited;
 
-@NamedNativeQueries({
-        //یکی از راه های کال کردن sp روش زیر است
-        @NamedNativeQuery(name = "callGetAllFoos", query = "CALL GetAllFoos()", resultClass = Foo.class),
-        //برای اس پی هایی ورودی میگیرند
-        @NamedNativeQuery(name = "callGetFoosByName", query = "CALL GetFoosByName(:fooName)", resultClass = Foo.class) })
+//@NamedNativeQueries({
+//        //یکی از راه های کال کردن sp روش زیر است
+//        @NamedNativeQuery(name = "callGetAllFoos", query = "CALL GetAllFoos()", resultClass = Foo.class),
+//        //برای اس پی هایی ورودی میگیرند
+//        @NamedNativeQuery(name = "callGetFoosByName", query = "CALL GetFoosByName(:fooName)", resultClass = Foo.class) })
 //اس پی ها را هم میتوان به روش زیر هم استفاده کرد
-//@NamedStoredProcedureQuery(
-//  name="GetFoosByName",
-//  procedureName="GetFoosByName",
-//  resultClasses = { Foo.class },
-//  parameters={
-//    @StoredProcedureParameter(name="fooName", type=String.class, mode=ParameterMode.IN)
-//  }
-//)
+@NamedStoredProcedureQuery(
+  name="GetFoosByName",
+  procedureName="GetFoosByName",
+  resultClasses = { Foo.class },
+  parameters={
+    @StoredProcedureParameter(name="fooName", type=String.class, mode=ParameterMode.IN)
+  }
+)
 @Entity
 @Audited
 // @Proxy(lazy = false)

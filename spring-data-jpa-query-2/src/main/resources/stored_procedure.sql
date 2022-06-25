@@ -1,4 +1,4 @@
-INSERT INTO foo(id,name) VALUES (1,'John');
+-- INSERT INTO foo(id,name) VALUES (1,'John');
 
 
 DELIMITER //
@@ -10,8 +10,6 @@ DELIMITER //
             SELECT * FROM foo WHERE name = fooName;
         END //
 DELIMITER ;
-
-
 DELIMITER //
     CREATE PROCEDURE GetAllFoos()
         LANGUAGE SQL
