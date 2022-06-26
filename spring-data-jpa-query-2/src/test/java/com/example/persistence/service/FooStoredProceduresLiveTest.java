@@ -29,7 +29,7 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { PersistenceConfig.class }, loader = AnnotationConfigContextLoader.class)
 @Slf4j
-@Sql(scripts = "/stored_procedure.sql")//man ezafe kardam
+//@Sql(scripts = "/stored_procedure.sql")//man ezafe kardam
 public class FooStoredProceduresLiveTest {
 
 
